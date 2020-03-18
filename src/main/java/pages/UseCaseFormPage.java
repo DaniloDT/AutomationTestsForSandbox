@@ -17,6 +17,11 @@ public class UseCaseFormPage extends BasePage{
     private By useCaseStep3 =By.name("testStepId-3");
     private By useCaseStep4=By.name("testStepId-4");
     private By useCaseStep5=By.name("testStepId-5");
+    private By useCaseStep6=By.name("testStepId-6");
+    private By useCaseStep7=By.name("testStepId-7");
+    private By useCaseStep8=By.name("testStepId-8");
+    private By useCaseStep9=By.name("testStepId-9");
+
     private By addStepBtn=By.cssSelector("[class='btn btn-light mb-3 addTestStep '] span");
     private By submitBtn=By.cssSelector("form > .btn.btn-primary.float-right.mt-4");
 
@@ -80,6 +85,27 @@ public class UseCaseFormPage extends BasePage{
         driver.findElement(useCaseStep5).sendKeys(step);
         return this;
     }
+    public UseCaseFormPage  setUsecaseStepSix(String step)
+    {
+        driver.findElement(useCaseStep6).sendKeys(step);
+        return this;
+    }
+    public UseCaseFormPage  setUsecaseStepSeven(String step)
+    {
+        driver.findElement(useCaseStep7).sendKeys(step);
+        return this;
+    }
+    public UseCaseFormPage  setUsecaseStepEight(String step)
+    {
+        driver.findElement(useCaseStep8).sendKeys(step);
+        return this;
+    }
+    public UseCaseFormPage  setUsecaseStepNine(String step)
+    {
+        driver.findElement(useCaseStep9).sendKeys(step);
+        return this;
+    }
+
     public  UseCasesPage clickSubmitButton()
     {
         driver.findElement(submitBtn).click();
