@@ -32,7 +32,7 @@ public class LoginPage extends BasePage{
         driver.findElement(submitBtn).click();
         return new DashbordPage(driver);
     }
-
+    //Populate credentials and logging into Dashboard of Sandbox
     public DashbordPage LoginWithCredentials()
     {
         setUserName("danilokukric988@gmail.com");

@@ -10,9 +10,9 @@ public class EditUseCasePage extends BasePage{
     {
         super(driver);
     }
-
+    //Delete use case button
     private By deleteUseCaseBtn = By.cssSelector(".btn.btn-dark.btn-lg.btn-secondary.mb-3.ml-2.pull-right");
-
+    //Click on delete use case button and navigate to Delete frame
     public DeleteFrame clickDeleteUseCaseBtn()
     {
         driver.findElement(deleteUseCaseBtn).click();

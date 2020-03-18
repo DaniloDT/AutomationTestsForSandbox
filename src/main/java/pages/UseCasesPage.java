@@ -7,14 +7,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class UseCasesPage extends BasePage{
 
-    private By createUseCaseBtn=By.linkText("CREATE USE CASE");
-    private By firstUseCase=By.cssSelector(".list-group.mt-5 > a:nth-of-type(1)");
-
     public UseCasesPage (WebDriver driver)
     {
         super(driver);
     }
-
+    //Create Use Case button
+    private By createUseCaseBtn=By.linkText("CREATE USE CASE");
+    //First Use case on the list
+    private By firstUseCase=By.cssSelector(".list-group.mt-5 > a:nth-of-type(1)");
+    //Click create use case button and navigate to use case form page
     public UseCaseFormPage clickOnCreateUseCaseBtn()
     {
         try {
@@ -25,10 +26,12 @@ public class UseCasesPage extends BasePage{
         driver.findElement(createUseCaseBtn).click();
         return new UseCaseFormPage(driver);
     }
+    //Get text from first use case on the list
     public String  getFirstUseCaseName()
     {
-        return   wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(firstUseCase))).getText();
+        return wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(firstUseCase))).getText();
     }
+    //Check is first use case on the list displayed
     public boolean useCaseIsCreated()
     {
         try {
@@ -39,7 +42,7 @@ public class UseCasesPage extends BasePage{
         driver.findElement(firstUseCase).isDisplayed();
         return true;
     }
-
+    //Edit use case page
     public EditUseCasePage clickFirstUseCase()
     {
         try {

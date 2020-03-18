@@ -16,18 +16,24 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp(){
+        //Path to chromedriver
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+        //Driver instantiation
         driver = new ChromeDriver();
+        //Maximize browser window
         driver.manage().window().maximize();
-       // goSandbox();
+        //Navigate to URL
         driver.get("https://qa-sandbox.apps.htec.rs/");
         sandboxPage = new QASandboxPage(driver);
+        //CLick on login button
         var loginPage = sandboxPage.clicklogin();
+        //Login with credentials and navigate to dashboard page
         var dashboardPage = loginPage.LoginWithCredentials();
         dashboardPage.clickOnUseCasesSection();
     }
 
     @AfterClass
+    //Quit the session
     public void tearDown(){
         driver.quit();
     }

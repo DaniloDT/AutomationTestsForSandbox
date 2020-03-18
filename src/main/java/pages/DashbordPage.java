@@ -6,14 +6,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DashbordPage extends BasePage{
 
-    private By useCasesSection= By.cssSelector(".row > div:nth-of-type(2) .card-body");
-
-
     public DashbordPage(WebDriver driver)
     {
         super(driver);
     }
 
+    //Use case section locator
+    private By useCasesSection= By.cssSelector(".row > div:nth-of-type(2) .card-body");
+    //Click on use Cases Secation and navigate to the Use Case page
     public UseCasesPage clickOnUseCasesSection()
     {
         try {

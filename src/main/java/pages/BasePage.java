@@ -9,7 +9,7 @@ public class BasePage {
         protected WebDriverWait wait;
         //protected FluentWait wait;
 
-    //Constructor with Explicit wait of 25 sec, and option for fluent wait
+        //Constructor with Explicit wait of 25 sec, and commented option for fluent wait
          public BasePage(WebDriver driver) {
             this.driver = driver;
             wait = new WebDriverWait(driver, 25);
