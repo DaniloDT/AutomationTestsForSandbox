@@ -27,14 +27,11 @@ public class UseCasesPage extends BasePage{
     public String  getFirstUseCaseName()
     {
         return   wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(firstUseCase))).getText();
-        //wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(useCasesSection))).click();
-         //return driver.findElement(firstUseCase).getText();
-
     }
     public boolean useCaseIsCreated()
     {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -45,7 +42,7 @@ public class UseCasesPage extends BasePage{
     public EditUseCasePage clickFirstUseCase()
     {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

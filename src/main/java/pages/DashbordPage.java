@@ -17,7 +17,7 @@ public class DashbordPage extends BasePage{
     public UseCasesPage clickOnUseCasesSection()
     {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
