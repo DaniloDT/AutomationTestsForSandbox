@@ -12,7 +12,7 @@ import pages.UseCasesPage;
 
 public class BaseTest {
     protected WebDriver driver;
-    protected QASandboxPage sandboxPage;
+    protected UseCasesPage useCasesPage;
 
     @BeforeClass
     public void setUp(){
@@ -24,19 +24,17 @@ public class BaseTest {
         driver.manage().window().maximize();
         //Navigate to URL
         driver.get("https://qa-sandbox.apps.htec.rs/");
-        sandboxPage = new QASandboxPage(driver);
+        var sandboxPage = new QASandboxPage(driver);
         //CLick on login button
         var loginPage = sandboxPage.clicklogin();
         //Login with credentials and navigate to dashboard page
-        var dashboardPage = loginPage.LoginWithCredentials();
+        var dashboardPage = loginPage.LoginWithCredentials("danilokukric988@gmail.com","3SaFUqT6CtFBtvC");
         dashboardPage.clickOnUseCasesSection();
+        useCasesPage = new UseCasesPage(driver);
     }
-
     @AfterClass
     //Quit the session
     public void tearDown(){
         driver.quit();
     }
-
-
 }

@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DeleteFrame extends BasePage {
 
@@ -16,6 +17,6 @@ public class DeleteFrame extends BasePage {
     //Confirm btn for Deleting use case
     public void clickDeleteBtn ()
     {
-        driver.findElement(deleteActionButton).click();
+        wait.until(ExpectedConditions.elementToBeClickable( driver.findElement(deleteActionButton))).click();
     }
 }

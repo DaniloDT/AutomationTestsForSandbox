@@ -12,8 +12,7 @@ public class UseCasesTests extends BaseTest {
     @Test
     public  void UseCaseForCreateTeamTest()
     {
-        UseCasesPage useCasePage= new UseCasesPage(driver);
-        var useCaseForm = useCasePage.clickOnCreateUseCaseBtn()
+        var useCaseForm = useCasesPage.clickOnCreateUseCaseBtn()
                 .setTitle("Create Team")
                 .setDescription("Created Team should be displayed and available under the \"Select Team\" drop down list"+
                         " on a form for creating a new person( PEOPLE -> CREATE PERSON -> SELECT TEAM dropdown list )")
@@ -39,8 +38,7 @@ public class UseCasesTests extends BaseTest {
     @Test
     public void UseCaseForCreateSeniorityTest()
     {
-        UseCasesPage useCasePage= new UseCasesPage(driver);
-        var useCaseForm = useCasePage.clickOnCreateUseCaseBtn()
+        var useCaseForm = useCasesPage.clickOnCreateUseCaseBtn()
                 .setTitle("Create Seniority")
                 .setDescription("Created Seniority should be displayed and available under the \"Select seniority\" drop down list" +
                         " on a form for creating a new person (PEOPLE -> CREATE PERSON -> SELECT SENIORITY dropdown list)")
@@ -67,8 +65,7 @@ public class UseCasesTests extends BaseTest {
     @Test
     public void UseCaseForCreateTechnologyTest()
     {
-        UseCasesPage useCasePage= new UseCasesPage(driver);
-        var useCaseForm = useCasePage.clickOnCreateUseCaseBtn()
+        var useCaseForm = useCasesPage.clickOnCreateUseCaseBtn()
                 .setTitle("Create Technology")
                 .setDescription("Created Technology should be displayed and available under the \"Select technologies\" drop down list" +
                         " on a form for creating a new person (PEOPLE -> CREATE PERSON -> SELECT TECHNOLOGY dropdown list)")
@@ -95,11 +92,10 @@ public class UseCasesTests extends BaseTest {
     @Test
     public void UseCaseForCreatePersonTest()
     {
-        UseCasesPage useCasePage= new UseCasesPage(driver);
-        var useCaseForm = useCasePage.clickOnCreateUseCaseBtn()
+        var useCaseForm = useCasesPage.clickOnCreateUseCaseBtn()
                 .setTitle("Create Person")
                 .setDescription("Created people should be displayed available under the \"Select People\" dropdown list" +
-                        " in Project section on a form for creating a new Project( PORJECTS-> CREATE PROJECT -> SELECT PEOPLEdropdown list)")
+                        " in Project section on a form for creating a new Project( PROJECTS-> CREATE PROJECT -> SELECT PEOPLEdropdown list)")
                 .setExpectedResults("Person should be created and displayed under the Technologies list with option for editing and deleting")
                 .setUsecaseStep("Preconditions: User is logged in")
                 .clickAddStep()
@@ -134,5 +130,37 @@ public class UseCasesTests extends BaseTest {
         assertTrue(useCases.useCaseIsCreated(),"Use case Create Person is not created!");
         //Check is Use Case has a correct title
         assertEquals (useCases.getFirstUseCaseName(),"Create Person","Use case Create Technology has a wrong name");
+    }
+    @Test
+    public void UseCaseForCreateProjectTest()
+    {
+        var useCaseForm = useCasesPage.clickOnCreateUseCaseBtn()
+                .setTitle("Create Project")
+                .setDescription("Information about person which is added to the project with seniority" +
+                        ", technologies and team where added person belong ( previously defined in People section" +
+                        " for more details see \"Create People\" use case) , should be displayed for each created project!")
+                .setExpectedResults("Project should be created and displayed under the Technologies list with option for editing and deleting")
+                .setUsecaseStep("Preconditions: User is logged in")
+                .clickAddStep()
+                .setUsecaseStepOne("Navigate to Playground section by clicking on it")
+                .clickAddStep()
+                .setUsecaseStepTwo("Navigate to \"PROJECT\" tab by clicking on it")
+                .clickAddStep()
+                .setUsecaseStepThree("Click on \"+ CREATE PROJECT\" action button")
+                .clickAddStep()
+                .setUsecaseStepFour("Populate \"Project Title\" text field (this field is required")
+                .clickAddStep()
+                .setUsecaseStepFive("Select people from \"Select people\" dropdown list" +
+                        " (you can add multiple people" +
+                        " people must be created previously on the People section" +
+                        " what is described under the \"Create People\" use case)")
+                .clickAddStep()
+                .setUsecaseStepSix("Click on \"Submit\" action button")
+                .setAutomatedCheckbox();
+        var useCases=useCaseForm.clickSubmitButton();
+        //Check is Use Case created
+        assertTrue(useCases.useCaseIsCreated(),"Use case Create Project is not created!");
+        //Check is Use Case has a correct title
+        assertEquals (useCases.getFirstUseCaseName(),"Create Project","Use case Create Project has a wrong name");
     }
 }
