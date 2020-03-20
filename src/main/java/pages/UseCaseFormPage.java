@@ -2,9 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.DoubleSummaryStatistics;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class UseCaseFormPage extends BasePage{
 
@@ -14,7 +12,7 @@ public class UseCaseFormPage extends BasePage{
         super(driver);
     }
     //Title text field
-    private By titleField= By.name("title");
+    private By titleField= By.cssSelector("input[name='title']");
     //Description text field
     private By descriptionField=By.name("description");
     //Expected result text field
@@ -48,7 +46,9 @@ public class UseCaseFormPage extends BasePage{
     //Populate title text field
     public UseCaseFormPage setTitle(String title)
     {
-        driver.findElement(titleField).sendKeys(title);
+       var titleBox= driver.findElement(titleField);
+        titleBox.clear();
+        titleBox.sendKeys(title);
         return this;
     }
     //Populate description text field
@@ -141,4 +141,5 @@ public class UseCaseFormPage extends BasePage{
         driver.findElement(submitBtn).click();
         return new UseCasesPage(driver);
     }
+
 }

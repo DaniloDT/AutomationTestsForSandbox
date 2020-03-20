@@ -2,6 +2,9 @@ package useCases;
 
 import base.BaseTest;
 import static org.testng.Assert.*;
+
+import com.aventstack.extentreports.Status;
+import javafx.animation.Animation;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.DashbordPage;
@@ -34,6 +37,7 @@ public class UseCasesTests extends BaseTest {
         assertTrue(useCases.useCaseIsCreated(),"Use case Create Team is not created!");
         //Check is Use Case has a correct title
         assertEquals (useCases.getFirstUseCaseName(),"Create Team","Use case Create Team has a wrong name");
+        extentTest=extent.createTest("UseCaseForCreateTeamTest");
     }
     @Test
     public void UseCaseForCreateSeniorityTest()
@@ -61,6 +65,7 @@ public class UseCasesTests extends BaseTest {
          assertTrue(useCases.useCaseIsCreated(),"Use case Create Seniority is not created!");
         //Check is Use Case has a correct title
          assertEquals (useCases.getFirstUseCaseName(),"Create Seniority","Use case Create Seniority has a wrong name");
+         extentTest=extent.createTest("UseCaseForCreateSeniorityTest");
     }
     @Test
     public void UseCaseForCreateTechnologyTest()
@@ -88,8 +93,9 @@ public class UseCasesTests extends BaseTest {
         assertTrue(useCases.useCaseIsCreated(),"Use case Create Technology is not created!");
         //Check is Use Case has a correct title
         assertEquals (useCases.getFirstUseCaseName(),"Create Technology","Use case Create Technology has a wrong name");
+        extentTest=extent.createTest("UseCaseForCreateTechnologyTest");
     }
-    @Test
+   @Test
     public void UseCaseForCreatePersonTest()
     {
         var useCaseForm = useCasesPage.clickOnCreateUseCaseBtn()
@@ -130,6 +136,7 @@ public class UseCasesTests extends BaseTest {
         assertTrue(useCases.useCaseIsCreated(),"Use case Create Person is not created!");
         //Check is Use Case has a correct title
         assertEquals (useCases.getFirstUseCaseName(),"Create Person","Use case Create Technology has a wrong name");
+        extentTest=extent.createTest("UseCaseForCreatePersonTest");
     }
     @Test
     public void UseCaseForCreateProjectTest()
@@ -162,5 +169,7 @@ public class UseCasesTests extends BaseTest {
         assertTrue(useCases.useCaseIsCreated(),"Use case Create Project is not created!");
         //Check is Use Case has a correct title
         assertEquals (useCases.getFirstUseCaseName(),"Create Project","Use case Create Project has a wrong name");
+        extentTest=extent.createTest("UseCaseForCreateProjectTest");
     }
+
 }

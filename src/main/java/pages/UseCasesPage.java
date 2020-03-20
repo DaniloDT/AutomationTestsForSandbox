@@ -19,7 +19,7 @@ public class UseCasesPage extends BasePage{
     public UseCaseFormPage clickOnCreateUseCaseBtn()
     {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -42,8 +42,8 @@ public class UseCasesPage extends BasePage{
         driver.findElement(firstUseCase).isDisplayed();
         return true;
     }
-    //Edit use case page
-    public EditUseCasePage clickFirstUseCase()
+    //Edit use case
+    public EditUseCasePage editUseCase()
     {
         try {
             Thread.sleep(2000);
@@ -52,5 +52,16 @@ public class UseCasesPage extends BasePage{
         }
         driver.findElement(firstUseCase).click();
         return new  EditUseCasePage(driver);
+    }
+    //Click on first use case and navigate to use case form
+    public UseCaseFormPage clickUseCase()
+    {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(firstUseCase).click();
+        return new  UseCaseFormPage(driver);
     }
 }
