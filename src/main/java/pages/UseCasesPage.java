@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -15,15 +14,11 @@ public class UseCasesPage extends BasePage{
     private By createUseCaseBtn=By.linkText("CREATE USE CASE");
     //First Use case on the list
     private By firstUseCase=By.cssSelector(".list-group.mt-5 > a:nth-of-type(1)");
+    private  By text=By.name("muted-text");
     //Click create use case button and navigate to use case form page
     public UseCaseFormPage clickOnCreateUseCaseBtn()
     {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        driver.findElement(createUseCaseBtn).click();
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(createUseCaseBtn))).click();
         return new UseCaseFormPage(driver);
     }
     //Get text from first use case on the list
@@ -46,10 +41,10 @@ public class UseCasesPage extends BasePage{
     public EditUseCasePage editUseCase()
     {
         try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(2000);
+        } catch  (InterruptedException e) {
+        e.printStackTrace();
+    }
         driver.findElement(firstUseCase).click();
         return new  EditUseCasePage(driver);
     }
@@ -58,10 +53,11 @@ public class UseCasesPage extends BasePage{
     {
         try {
             Thread.sleep(2000);
-        } catch (InterruptedException e) {
+        } catch  (InterruptedException e) {
             e.printStackTrace();
         }
         driver.findElement(firstUseCase).click();
         return new  UseCaseFormPage(driver);
     }
 }
+

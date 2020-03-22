@@ -2,8 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class EditUseCasePage extends BasePage{
 
@@ -16,7 +14,12 @@ public class EditUseCasePage extends BasePage{
     //Click on delete use case button and navigate to Delete frame
     public DeleteFrame clickDeleteUseCaseBtn()
     {
-        driver.findElement(deleteUseCaseBtn).click();
+        try {
+            Thread.sleep(2000);
+        } catch  (InterruptedException e) {
+            e.printStackTrace();
+        }
+       driver.findElement(deleteUseCaseBtn).click();
         return new DeleteFrame(driver);
     }
 }

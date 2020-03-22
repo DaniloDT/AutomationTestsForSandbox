@@ -77,7 +77,6 @@ public class BaseTest {
         }
     }
     @AfterClass
-    //Quit the session
     public void tearDown(){
         driver.quit();
         extent.flush();

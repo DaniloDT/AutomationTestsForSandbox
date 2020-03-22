@@ -5,9 +5,11 @@ import static org.testng.Assert.*;
 
 import com.aventstack.extentreports.Status;
 import javafx.animation.Animation;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.DashbordPage;
+import pages.UseCaseFormPage;
 import pages.UseCasesPage;
 
 public class UseCasesTests extends BaseTest {
@@ -171,5 +173,34 @@ public class UseCasesTests extends BaseTest {
         assertEquals (useCases.getFirstUseCaseName(),"Create Project","Use case Create Project has a wrong name");
         extentTest=extent.createTest("UseCaseForCreateProjectTest");
     }
-
+    @Test()
+    public void checkNoOfCharactersForAllFieldsInEditedTest()
+    {
+        UseCaseFormPage useCaseFormPage= new UseCaseFormPage(driver);
+        var editUseCase = useCasesPage.clickUseCase();
+        int noCharactersTitle = editUseCase.getfieldlength(useCaseFormPage.titleField);
+        editUseCase.setTitle("This field previously had "+ noCharactersTitle + " characters");
+        int noCharactersDesc = editUseCase.getDescriptionFieldLength();
+        editUseCase.setDescription("This field previously had "+ noCharactersDesc + " characters");
+        int noCharactersExpectResult = editUseCase.getfieldlength(useCaseFormPage.expectedResultField);
+        editUseCase.setExpectedResults("This field previously had "+ noCharactersExpectResult + " characters");
+        int noCharactersZeroStep = editUseCase.getfieldlength(useCaseFormPage.useCaseStep0);
+        editUseCase.setUsecaseStep("This field previously had "+ noCharactersZeroStep + " characters");
+        int noCharactersFirstStep = editUseCase.getfieldlength(useCaseFormPage.useCaseStep1);
+        editUseCase.setUsecaseStepOne("This field previously had "+ noCharactersFirstStep + " characters");
+        int noCharactersSecondStep = editUseCase.getfieldlength(useCaseFormPage.useCaseStep2);
+        editUseCase.setUsecaseStepTwo("This field previously had "+ noCharactersSecondStep + " characters");
+        int noCharactersThirdStep = editUseCase.getfieldlength(useCaseFormPage.useCaseStep3);
+        editUseCase.setUsecaseStepThree("This field previously had "+ noCharactersThirdStep + " characters");
+        int noCharactersFourStep = editUseCase.getfieldlength(useCaseFormPage.useCaseStep4);
+        editUseCase.setUsecaseStepFour("This field previously had "+ noCharactersFourStep + " characters");
+        int noCharactersFiveStep = editUseCase.getfieldlength(useCaseFormPage.useCaseStep5);
+        editUseCase.setUsecaseStepFive("This field previously had "+ noCharactersFiveStep + " characters");
+        var useCases= useCaseFormPage.clickSubmitButton();
+        //Check is Use Case created
+        assertTrue(useCases.useCaseIsCreated(),"Use case for checking no of characters is not created!");
+        //Check is Use Case has a correct title
+        assertEquals (useCases.getFirstUseCaseName(),"This field previously had " + noCharactersTitle + " characters","Use case has a wrong name");
+        extentTest=extent.createTest("checkNoOfCharactersForAllFieldsInEditedTest");
+    }
 }

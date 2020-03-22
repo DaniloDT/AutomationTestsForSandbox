@@ -10,18 +10,17 @@ public class DashbordPage extends BasePage{
     {
         super(driver);
     }
-
     //Use case section locator
     private By useCasesSection= By.cssSelector(".row > div:nth-of-type(2) .card-body");
     //Click on use Cases Secation and navigate to the Use Case page
     public UseCasesPage clickOnUseCasesSection()
     {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        driver.findElement(useCasesSection).click();
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(useCasesSection))).click();
         return new UseCasesPage(driver);
     }
 }

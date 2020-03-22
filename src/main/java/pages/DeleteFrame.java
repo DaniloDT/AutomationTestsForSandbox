@@ -10,10 +10,8 @@ public class DeleteFrame extends BasePage {
     {
         super(driver);
     }
-
     // Delete action button
     private By deleteActionButton= By.cssSelector(".btn.btn-danger.btn-lg");
-
     //Confirm btn for Deleting use case
     public void clickDeleteBtn ()
     {
